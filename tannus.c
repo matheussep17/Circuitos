@@ -10,21 +10,21 @@ void and (int a, int b)
 {
   if (a == 1 && b == 1)
   {
-    digitalWrite(11, hight);
+    digitalWrite(11, HIGH);
   }
   else
   {
-    digitalWrite(11, low);
+    digitalWrite(11, LOW);
   }
 }
 
 if (a == 1 || b == 1)
 {
-  digitalWrite(11, hight);
+  digitalWrite(11, HIGH);
 }
 else
 {
-  digitalWrite(11, low);
+  digitalWrite(11, LOW);
 }
 }
 
@@ -32,11 +32,11 @@ void NOT(int a, int i)
 {
   if (i = !a)
   {
-    digitalWrite(11, hight);
+    digitalWrite(11, HIGH);
   }
   else
   {
-    digitalWrite(11, low);
+    digitalWrite(11, LOW);
   }
 }
 
@@ -44,11 +44,11 @@ void NAND(int a, int b, int i)
 {
   if (i = !(a == 1 && b == 1))
   {
-    digitalWrite(11, hight);
+    digitalWrite(11, HIGH);
   }
   else
   {
-    digitalWrite(11, low);
+    digitalWrite(11, LOW);
   }
 }
 
@@ -56,11 +56,11 @@ void NOR(int a, int b, int i)
 {
   if (i = !(a == 1 || b == 1))
   {
-    digitalWrite(11, hight);
+    digitalWrite(11, HIGH);
   }
   else
   {
-    digitalWrite(11, low);
+    digitalWrite(11, LOW);
   }
 }
 
@@ -69,11 +69,11 @@ void XOR(int a, int b, int i)
 
   if (i == (a ^ b))
   {
-    digitalWrite(11, hight);
+    digitalWrite(11, HIGH);
   }
   else
   {
-    digitalWrite(11, low);
+    digitalWrite(11, LOW);
   }
 }
 
