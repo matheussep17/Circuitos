@@ -1,127 +1,94 @@
-
 void setup()
 {
-  pinMode(13, output);
-  pinMode(12, output);
-  pinMode(11, output);
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
 }
 
-void and (int a, int b)
+void AND(int A, int B)
 {
-  if (a == 1 && b == 1)
-  {
+
+  if (A == 1 && B == 1)
     digitalWrite(11, HIGH);
-  }
   else
-  {
     digitalWrite(11, LOW);
-  }
 }
+void OR(int A, int B)
+{
 
-if (a == 1 || b == 1)
-{
-  digitalWrite(11, HIGH);
-}
-else
-{
-  digitalWrite(11, LOW);
-}
-}
-
-void NOT(int a, int i)
-{
-  if (i = !a)
-  {
+  if (A == 1 || B == 1)
     digitalWrite(11, HIGH);
-  }
   else
-  {
     digitalWrite(11, LOW);
-  }
 }
 
-void NAND(int a, int b, int i)
+void NOT(int A, int I)
 {
-  if (i = !(a == 1 && b == 1))
-  {
+
+  if (I == !A)
     digitalWrite(11, HIGH);
-  }
   else
-  {
     digitalWrite(11, LOW);
-  }
 }
-
-void NOR(int a, int b, int i)
+void NAND(int A, int B, int I)
 {
-  if (i = !(a == 1 || b == 1))
-  {
+
+  if (I = !(A == 1 && B == 1))
     digitalWrite(11, HIGH);
-  }
   else
-  {
     digitalWrite(11, LOW);
-  }
 }
-
-void XOR(int a, int b, int i)
+void NOR(int A, int B, int I)
 {
 
-  if (i == (a ^ b))
-  {
+  if (I = !(A == 1 || B == 1))
     digitalWrite(11, HIGH);
-  }
   else
-  {
     digitalWrite(11, LOW);
-  }
+}
+void XOR(int A, int B, int I)
+{
+
+  if (I = (A ^ B))
+    digitalWrite(11, HIGH);
+  else
+    digitalWrite(11, LOW);
 }
 
 void loop()
 {
-  int i = 1;
-  int a = 0;
-  int b = 0;
-
-  while (i <= 4)
+  int I = 1;
+  int A = 0;
+  int B = 0;
+  while (I <= 4)
   {
-    if (i <= 2)
-    {
-      a = 1;
-    }
+    if (I <= 2)
+      A = 1;
     else
-    {
-      a = 0;
-    }
+      A = 0;
 
-    if ((i % 2) == 1)
-    {
-      b = 0;
-    }
+    if ((I % 2) == 1)
+      B = 0;
     else
-    {
-      b = 1;
-    }
+      B = 1;
 
-    digitalWrite(13, a);
-    digitalWrite(12, b);
+    digitalWrite(13, A);
 
-    and(a, b);
-    or (a, b);
-    NOT(a, b);
-    NAND(a, b, i);
-    NOR(a, b, i);
-    XOR(a, b, i);
+    digitalWrite(12, B);
 
+    AND(A, B);
+    OR(A, B);
+    NOT(A, B);
+    NAND(A, B);
+    NOR(A, B);
+    XOR(A, B);
+
+    // aguarda 1000 millisecond(s)
     delay(1000);
 
-    if (i == 4)
-    {
-      i = 0;
-    }
+    if (I == 4)
+      I = 0;
     else
-    {
-      i++;
-    }
+      I++;
   }
 }
