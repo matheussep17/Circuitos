@@ -1,0 +1,102 @@
+#include<LiquidCrystal.h>
+
+LiquidCrystal lsd(0,1,2,3,4,5,6,A0,A1,A2,A3)
+  
+int segA = 0,
+segB = 1,
+segC = 2,
+segD = 3,
+segE = 4,
+segF = 5,
+segG = 6,
+botA = A0,
+botB = A1,
+botC = A2,
+botD = A3;
+
+void setup()
+{
+lsd.begin(13,0)
+    pinMode(segA, OUTPUT);
+  
+    lsd.begin(12,1)
+pinMode(segB, OUTPUT);
+  
+    lsd.begin(-11,2)
+pinMode(segC, OUTPUT); 
+  
+    lsd.begin(-10,3)
+pinMode(segD, OUTPUT);
+  
+    lsd.begin(-9,4)
+pinMode(segE, OUTPUT); 
+    
+    lsd.begin(8,5)
+    pinMode(segF, OUTPUT); 
+  
+    lsd.begin(7,6)
+pinMode(segG, OUTPUT); 
+  
+}
+
+void loop()
+{
+    contador++;
+    delay(1000);
+    lsd.setCursor(coluna,linha);
+    lsd.contador(contador)
+      
+      if(contador>59){
+        contador = 0;
+      lsd.clear();
+    }
+  
+  bool A = digitalRead(botA); 
+  bool B = digitalRead(botB); 
+  bool C = digitalRead(botC); 
+  bool D = digitalRead(botD); 
+  
+	digitalwrite(segA, acendeA(A, B, C, D));
+	digitalwrite(segB, acendeB(A, B, C, D));
+	digitalwrite(segC, acendeC(A, B, C, D));
+	digitalwrite(segD, acendeD(A, B, C, D));
+	digitalwrite(segE, acendeE(A, B, C, D));
+	digitalwrite(segF, acendeF(A, B, C, D));
+	digitalwrite(segG, acendeG(A, B, C, D));
+}
+
+
+void acendeA(bool A, bool B, bool C, bool D)
+{
+return = (!B && !D) || (A) || (B && D) || (B && C) || (C && D);
+}
+
+void acendeB(bool A, bool B, bool C, bool D)
+{
+  return = (!A && !C && !D) || (A && !C && D) || (!A && C && D) || (!B);
+}
+
+void acendeC(bool A, bool B, bool C, bool D)
+{
+ return = (!A && !C) || (!A && D) || (!A && B) || (A && !B) || (!C && D);
+}
+
+void acendeD(bool A, bool B, bool C, bool D)
+{
+ return = (!A && !B && !C && !D) || (A && !C) || (B && !C && D) || (A && !B && D) || (!A && !B && C) || (B && C && !D);  
+}
+
+void acendeE(bool A, bool B, bool C, bool D)
+{
+ return = (!B && !D) || (A && B) || (A && !B && C) || (C && !D);
+}
+
+void acendeF(bool A, bool B, bool C, bool D)
+{
+ return = (!C && !D) || (B && !C) || (A && D) || (A && C) || (B && C && !D);
+}
+
+void acendeG(bool A, bool B, bool C, bool D)
+{
+return = (!A && B && !C) || (A && !B) || (!A && !B && C) || (A && C) || (C && !D);
+}
